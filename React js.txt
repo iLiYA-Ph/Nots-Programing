@@ -1,0 +1,113 @@
+مقدار دادن به props :
+اگر مقدار عدد باشد : 
+نام پراپس = {2}
+اگر مقدار استرینگ باشد : 
+نام پراپس = ""
+-----------------------------------
+تعریف پراپ در کلاس : 
+import { Component } from "react";
+class nameClas extends Component{
+	state = {
+	    Fname : 'iliya'
+	}
+
+	render(){
+	    let {Fname} = this.state;
+	}
+	return(
+	<div>
+	    <p>{Fname}</p>
+	</din>
+	)
+...
+-----------------------------------------------
+تعریف پراپ در توابع : 
+const Secret = function() {
+
+    const [num, setnum] = useState(80);
+    const [FirstName, setFirstName] = useState('ili');
+    const [count,setcount] = useState(0)
+
+    return(
+        <div>
+            <p>{FirstName}</p>
+            <p>{num}</p>
+            <p>{count}</p>
+            <button onClick={changeAge}>Change</button>
+        </div>
+    )
+}
+///////////////////////////////////////////////////////////////
+چرخه ی حیات :
+در کامپوننت های تابعی :
+ایمپورت کردن هوک یوزافکت : import { useEfect } from 'react';
+----------------------------------------------
+Mount : 
+useEfect(() => {
+        console.log('Mount useEfenct()')
+    }, []);
+----------------------------------------------
+Unmount : 
+useEfect(() => {
+    ...
+    return () => {
+        console.log('Unmount useEfenct()')
+    }, []);
+----------------------------------------------
+Update :
+useEfect(() => {
+    console.log('Update useEfenct()')
+}, [prop]);
+----------------------------------------------
+http :
+
+POST : برای ارسال اطلاعات و ساخت اطلاعات = (Cread)
+GET : برای دریافت اطلاعات - خواندن = (Read)
+PUT : برای ویرایش اطلاعات = (Update)
+DELETE : برای حذف اطلاعات = (DELETE)
+
+===============================================
+ساخت سریع کامپوننت تابعی در وی اس کد : sfc
+==================== چرخه زندگی : Life Style(Class) ===========================
+
+Mount : ساخت کامپوننت : { constructor, render, componentDidMount }
+Update : state & props تغییر مقدار : { render, componentDidUpdate }
+UnMount : حذف  کامپوننت: { componentWillUnmount }
+
+==================== چرخه زندگی : Life Style(Function) ===========================
+
+  //--------MOUNT
+  useEffect(() => {
+    console.log("App - Mount");
+  }, []);
+  //--------UPDATE
+  useEffect(() => {
+    console.log("App - UpDate");
+  });
+  //--------UNMOUNT
+  useEffect(() => {
+    return () => {
+      console.log("App - UnMount");
+    };
+  });
+======================================ری دایرکت با Navigate========================
+در روت ها : <Route path="/customer" element={<Navigate to={'/register'}/>}/>
+در کامپوننت: 
+import { useNavigate } from "react-router-dom";
+  const navigate = useNavigate();
+  navigate("/users");
+-------------------------------استفاده از Ref به جای doc.getElementId()--------------
+	اینپوت <input/> :
+import { useRef } from "react";
+const emailRef = useRef();
+<input ref={emailRef} type="text" />
+console.log("Email : \n" + emailRef.current.value);
+
+	لیبل <lable> : 
+import { useRef } from "react";
+const emailRef = useRef();
+<lable ref={emailRef} > Hi <lable/>
+console.log("Email : \n" + emailRef.current.textContent);
+-------------------------------------------------------
+
+================================================================================
